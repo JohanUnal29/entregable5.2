@@ -1,0 +1,49 @@
+<div>
+  <h1>Bienvenid@ a dasein!</h1>
+
+  <tbody class="productListUpdated">
+    {{#each products}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.title}}</td>
+      <td>{{this.description}}</td>
+      <td>{{this.price}}</td>
+      <td>{{this.code}}</td>
+      <td>{{this.stock}}</td>
+      <td>${product.thumbnail}</td>
+        <button type="button" class="btn btn-danger" onclick="deleteProduct({{this.id}})">X</button>
+      </td>
+    </tr>
+
+    {{/each}}
+  </tbody>
+
+  <h1>Crear producto</h1>
+  <form id="mi-formulario">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" required><br><br>
+
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" required><br><br>
+
+    <label for="thumbnail">Thumbnail</label>
+    <input type="text" id="thumbnail" name="thumbnail" required><br><br>
+
+    <label for="code">Code</label>
+    <input type="text" id="code" name="code" required><br><br>
+
+    <label for="stock">Stock</label>
+    <input type="text" id="stock" name="stock" required><br><br>
+
+    <input type="submit" value="Enviar" onclick="enviarFormulario(event)">
+  </form>
+
+  {{!-- <input id="input-msg" type="text" value="" placeholder="Ingrese algo.." /> --}}
+
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/products-socket.js"></script>
